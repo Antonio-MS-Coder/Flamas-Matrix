@@ -294,7 +294,8 @@ const translations = {
         gallery: "Galería",
         contact: "Contacto",
         blog: "Blog",
-        faq: "Preguntas Frecuentes"
+        faq: "Preguntas Frecuentes",
+        support: "Soporte"
       },
 
       legal: {
@@ -628,7 +629,8 @@ const translations = {
         gallery: "Gallery",
         contact: "Contact",
         blog: "Blog",
-        faq: "FAQ"
+        faq: "FAQ",
+        support: "Support"
       },
 
       legal: {
@@ -962,7 +964,8 @@ const translations = {
         gallery: "Galerie",
         contact: "Kontakt",
         blog: "Blog",
-        faq: "FAQ"
+        faq: "FAQ",
+        support: "Support"
       },
 
       legal: {
