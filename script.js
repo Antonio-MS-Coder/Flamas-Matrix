@@ -2,7 +2,11 @@
  * FLAMAS MATRIX - TRANSFORMATIVE WEB EXPERIENCE
  * Interactive JavaScript for consciousness-expanding user journey
  * Optimized for performance and accessibility
+ * Spanish-first with multilingual support (ES/EN/DE)
  */
+
+// Load translations module
+let languageManager = null;
 
 // Stripe Configuration (Production ready)
 let stripe = null;
@@ -56,6 +60,13 @@ document.addEventListener('DOMContentLoaded', function() {
  * Initialize the application
  */
 function initializeApp() {
+  // Initialize language management first
+  if (typeof LanguageManager !== 'undefined') {
+    languageManager = new LanguageManager();
+    window.flamasMatrix = window.flamasMatrix || {};
+    window.flamasMatrix.languageManager = languageManager;
+  }
+  
   setupNavigation();
   setupSmoothScrolling();
   setupGalleryFilters();
@@ -64,6 +75,7 @@ function initializeApp() {
   setupAnimations();
   setupStripePayments();
   setupPerformanceOptimizations();
+  setupLanguageSwitcher();
   
   // Initialize AOS (Animate On Scroll) alternative
   initializeScrollAnimations();
@@ -945,6 +957,88 @@ window.addEventListener('resize', debounce(() => {
     galleryGrid.style.display = '';
   }
 }, 250));
+
+/**
+ * Language Switcher Setup
+ */
+function setupLanguageSwitcher() {
+  const languageDropdown = document.querySelector('.language-dropdown');
+  const currentLanguageBtn = document.querySelector('.current-language');
+  const langSwitchBtns = document.querySelectorAll('.lang-switch');
+
+  if (!languageDropdown || !currentLanguageBtn) return;
+
+  // Toggle dropdown
+  currentLanguageBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const isExpanded = languageDropdown.getAttribute('aria-expanded') === 'true';
+    languageDropdown.setAttribute('aria-expanded', !isExpanded);
+  });
+
+  // Handle language switches
+  langSwitchBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = btn.getAttribute('data-lang');
+      
+      if (languageManager) {
+        languageManager.setLanguage(lang);
+      }
+      
+      // Close dropdown
+      languageDropdown.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!languageDropdown.contains(e.target)) {
+      languageDropdown.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Handle language change event
+  document.addEventListener('languageChanged', (e) => {
+    const newLang = e.detail.language;
+    
+    // Update experience prices based on language
+    updateExperiencePrices(newLang);
+    
+    // Update any dynamic content
+    updateDynamicContent(newLang);
+    
+    console.log(`Language changed to: ${newLang}`);
+  });
+}
+
+/**
+ * Update experience prices based on language
+ */
+function updateExperiencePrices(language) {
+  // Update currency symbol and prices if needed
+  // For now, keeping Euro as universal currency
+  const priceElements = document.querySelectorAll('.price');
+  priceElements.forEach(el => {
+    // Prices remain the same in euros for all languages
+    // Could be extended to support multiple currencies
+  });
+}
+
+/**
+ * Update dynamic content that's not in translations
+ */
+function updateDynamicContent(language) {
+  // Update any JavaScript-generated content
+  // Update form validation messages
+  // Update Stripe payment language if supported
+  
+  if (typeof stripe !== 'undefined' && stripe) {
+    // Stripe automatically uses browser language, but we could override
+    console.log(`Stripe will use ${language} if supported`);
+  }
+}
 
 /**
  * Service Worker Registration (for PWA capabilities)
