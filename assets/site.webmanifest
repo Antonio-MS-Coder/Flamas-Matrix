@@ -1,0 +1,42 @@
+{
+  "name": "Flamas Matrix - Transformative Nature Experiences",
+  "short_name": "Flamas Matrix",
+  "description": "Discover profound transformation through immersive nature experiences. Connect with consciousness-expanding adventures in pristine natural settings.",
+  "icons": [
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#2d5016",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["wellness", "nature", "transformation", "spiritual"],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
