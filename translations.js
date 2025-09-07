@@ -234,6 +234,15 @@ const translations = {
         book: "Reservar Ahora",
         processing: "Procesando...",
         newBooking: "Nueva Reserva"
+      },
+
+      whyChoose: {
+        title: "¿Por Qué Elegir Flamas Matrix?",
+        facilitators: "Facilitadores galardonados",
+        organic: "100% orgánico, prácticas sostenibles",
+        smallGroups: "Grupos pequeños, atención personal",
+        integration: "Soporte completo de integración",
+        guarantee: "Garantía de devolución de 30 días"
       }
     },
 
@@ -559,6 +568,15 @@ const translations = {
         book: "Book Now",
         processing: "Processing...",
         newBooking: "New Booking"
+      },
+
+      whyChoose: {
+        title: "Why Choose Flamas Matrix?",
+        facilitators: "Award-winning facilitators",
+        organic: "100% organic, sustainable practices",
+        smallGroups: "Small groups, personal attention",
+        integration: "Full integration support",
+        guarantee: "30-day money-back guarantee"
       }
     },
 
@@ -884,6 +902,15 @@ const translations = {
         book: "Jetzt Buchen",
         processing: "Verarbeitung...",
         newBooking: "Neue Buchung"
+      },
+
+      whyChoose: {
+        title: "Warum Flamas Matrix Wählen?",
+        facilitators: "Ausgezeichnete Facilitatoren",
+        organic: "100% biologisch, nachhaltige Praktiken",
+        smallGroups: "Kleine Gruppen, persönliche Betreuung",
+        integration: "Vollständige Integrationsunterstützung",
+        guarantee: "30-Tage Geld-zurück-Garantie"
       }
     },
 

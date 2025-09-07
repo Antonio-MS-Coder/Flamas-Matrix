@@ -610,25 +610,25 @@
                         </div>
                         
                         <div class="form-step" data-step="2">
-                            <h3>Personal Information</h3>
+                            <h3 data-i18n="booking.steps.step2">Información Personal</h3>
                             <div class="form-grid">
                                 <div class="form-group">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" id="firstName" name="firstName" required>
+                                    <label for="firstName" data-i18n="booking.form.firstName">Nombre</label>
+                                    <input type="text" id="firstName" name="firstName" required placeholder="Tu nombre" data-i18n-attr="placeholder" data-i18n="booking.form.placeholders.firstName">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="lastName">Last Name</label>
-                                    <input type="text" id="lastName" name="lastName" required>
+                                    <label for="lastName" data-i18n="booking.form.lastName">Apellidos</label>
+                                    <input type="text" id="lastName" name="lastName" required placeholder="Tus apellidos" data-i18n-attr="placeholder" data-i18n="booking.form.placeholders.lastName">
                                 </div>
                                 
                                 <div class="form-group full-width">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" required>
+                                    <label for="email" data-i18n="booking.form.email">Correo Electrónico</label>
+                                    <input type="email" id="email" name="email" required placeholder="tu@correo.com" data-i18n-attr="placeholder" data-i18n="booking.form.placeholders.email">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="phone">Phone Number</label>
+                                    <label for="phone" data-i18n="booking.form.phone">Teléfono</label>
                                     <input type="tel" id="phone" name="phone" required>
                                 </div>
                                 
@@ -660,15 +660,15 @@
                         </div>
                         
                         <div class="form-step" data-step="3">
-                            <h3>Secure Payment</h3>
+                            <h3 data-i18n="booking.steps.step3">Pago Seguro</h3>
                             <div class="payment-summary">
                                 <div class="summary-item">
-                                    <span class="summary-label">Selected Experience:</span>
+                                    <span class="summary-label" data-i18n="booking.form.experience">Experiencia seleccionada:</span>
                                     <span class="summary-value" id="selectedExperience">-</span>
                                 </div>
                                 <div class="summary-item">
-                                    <span class="summary-label">Investment:</span>
-                                    <span class="summary-value" id="totalAmount">$0</span>
+                                    <span class="summary-label" data-i18n="booking.payment.total">Total a pagar:</span>
+                                    <span class="summary-value" id="totalAmount">€0</span>
                                 </div>
                             </div>
                             
@@ -679,9 +679,9 @@
                             
                             <div class="payment-security">
                                 <div class="security-badges">
-                                    <span class="security-badge">🔒 SSL Secured</span>
-                                    <span class="security-badge">💳 Stripe Protected</span>
-                                    <span class="security-badge">✅ Fully Refundable</span>
+                                    <span class="security-badge">🔒 SSL Seguro</span>
+                                    <span class="security-badge">💳 Protegido por Stripe</span>
+                                    <span class="security-badge">✅ Totalmente Reembolsable</span>
                                 </div>
                             </div>
                             
@@ -706,13 +706,13 @@
                     
                     <div class="reservation-sidebar">
                         <div class="trust-indicators">
-                            <h4>Why Choose Flamas Matrix?</h4>
+                            <h4 data-i18n="booking.whyChoose.title">¿Por Qué Elegir Flamas Matrix?</h4>
                             <ul class="trust-list">
-                                <li><span class="trust-icon">🏆</span> Award-winning facilitators</li>
-                                <li><span class="trust-icon">🌱</span> 100% organic, sustainable practices</li>
-                                <li><span class="trust-icon">❤️</span> Small groups, personal attention</li>
-                                <li><span class="trust-icon">🔄</span> Full integration support</li>
-                                <li><span class="trust-icon">💰</span> 30-day money-back guarantee</li>
+                                <li><span class="trust-icon">🏆</span> <span data-i18n="booking.whyChoose.facilitators">Facilitadores galardonados</span></li>
+                                <li><span class="trust-icon">🌱</span> <span data-i18n="booking.whyChoose.organic">100% orgánico, prácticas sostenibles</span></li>
+                                <li><span class="trust-icon">❤️</span> <span data-i18n="booking.whyChoose.smallGroups">Grupos pequeños, atención personal</span></li>
+                                <li><span class="trust-icon">🔄</span> <span data-i18n="booking.whyChoose.integration">Soporte completo de integración</span></li>
+                                <li><span class="trust-icon">💰</span> <span data-i18n="booking.whyChoose.guarantee">Garantía de devolución de 30 días</span></li>
                             </ul>
                         </div>
                         
