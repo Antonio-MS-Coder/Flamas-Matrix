@@ -652,6 +652,89 @@ p {
   transform: translateY(-2px);
 }
 
+/* Philosophy Section - UNO Inspired */
+.philosophy {
+  padding: var(--space-24) 0;
+  background: var(--white);
+  position: relative;
+}
+
+.philosophy-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+  min-height: 70vh;
+}
+
+@media (max-width: 768px) {
+  .philosophy-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    min-height: auto;
+  }
+}
+
+.philosophy-text h2 {
+  font-family: var(--font-family-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--near-black);
+  margin-bottom: var(--space-6);
+  line-height: 1.1;
+}
+
+.lead-text {
+  font-size: var(--font-size-xl);
+  color: var(--dark-gray);
+  font-weight: 300;
+  line-height: 1.4;
+  margin-bottom: var(--space-6);
+}
+
+.philosophy-text p {
+  font-size: var(--font-size-base);
+  color: var(--medium-gray);
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
+}
+
+.cta-philosophy {
+  display: inline-block;
+  color: var(--near-black);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--near-black);
+  transition: all var(--transition-base);
+}
+
+.cta-philosophy:hover {
+  opacity: 0.6;
+  transform: translateX(10px);
+}
+
+.philosophy-visual {
+  position: relative;
+  height: 500px;
+}
+
+.philosophy-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform var(--transition-slow);
+}
+
+.philosophy:hover .philosophy-image {
+  transform: scale(1.02);
+}
+
 /* Experiences Section - UNO Style */
 .experiences {
   padding: var(--space-24) 0 var(--space-20) 0;
@@ -824,6 +907,86 @@ p {
 .btn-reserve:hover {
   background: var(--near-black);
   color: var(--white);
+}
+
+/* Partners Section - UNO Inspired */
+.partners {
+  padding: var(--space-24) 0;
+  background: var(--off-white);
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-8);
+  margin-top: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .partners-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.partner-card {
+  background: var(--white);
+  padding: var(--space-8);
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.partner-logo {
+  margin-bottom: var(--space-6);
+}
+
+.partner-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: var(--space-4);
+}
+
+.partner-card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--near-black);
+  margin-bottom: var(--space-4);
+}
+
+.partner-card p {
+  font-size: var(--font-size-sm);
+  color: var(--medium-gray);
+  line-height: 1.5;
+  margin-bottom: var(--space-6);
+}
+
+.partner-link {
+  display: inline-block;
+  color: var(--near-black);
+  text-decoration: none;
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--near-black);
+  transition: all var(--transition-base);
+}
+
+.partner-link:hover {
+  opacity: 0.6;
 }
 
 /* Gallery Section - UNO Style */
@@ -1047,53 +1210,65 @@ p {
   }
 }
 
-/* Testimonials Section */
+/* Testimonials Section - UNO Style */
 .testimonials {
   padding: var(--space-24) 0;
-  background: var(--primary-green);
-  color: var(--white);
+  background: var(--white);
+  color: var(--near-black);
 }
 
 .testimonials .section-header h2,
 .testimonials .section-subtitle {
-  color: var(--white);
+  color: var(--near-black);
 }
 
-.testimonials-slider {
+.testimonials-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: var(--space-8);
   margin-top: var(--space-16);
 }
 
+@media (min-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .testimonial-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius-2xl);
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0;
   padding: var(--space-8);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform var(--transition-base);
+  transition: all var(--transition-base);
+  text-align: left;
 }
 
 .testimonial-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
-.testimonial-content blockquote {
+.testimonial-card blockquote {
   font-size: var(--font-size-lg);
   line-height: 1.6;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
   font-style: italic;
+  color: var(--dark-gray);
+  font-weight: 300;
   position: relative;
+  border: none;
+  padding: 0;
 }
 
-.testimonial-content blockquote::before {
+.testimonial-card blockquote::before {
   content: '"';
-  font-size: 4rem;
+  font-size: 3rem;
   position: absolute;
-  top: -20px;
-  left: -20px;
-  opacity: 0.3;
+  top: -10px;
+  left: -15px;
+  opacity: 0.2;
+  color: var(--medium-gray);
   font-family: var(--font-family-display);
 }
 
@@ -1101,25 +1276,38 @@ p {
   display: flex;
   align-items: center;
   gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .testimonial-author img {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: none;
+  filter: grayscale(100%);
+  transition: filter var(--transition-base);
+}
+
+.testimonial-card:hover .testimonial-author img {
+  filter: grayscale(0%);
 }
 
 .author-name {
   font-weight: 600;
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-base);
+  color: var(--near-black);
   display: block;
+  margin-bottom: var(--space-1);
 }
 
 .author-title {
-  font-size: var(--font-size-sm);
-  opacity: 0.8;
+  font-size: var(--font-size-xs);
+  color: var(--medium-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
 }
 
 /* Reservation Section */
