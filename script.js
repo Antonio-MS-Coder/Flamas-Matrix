@@ -27,7 +27,10 @@ const AppState = {
     'deep-connection': 'Deep Connection Retreat',
     'consciousness-intensive': 'Consciousness Intensive'
   },
-  isProcessing: false
+  isProcessing: false,
+  // Hero slideshow state
+  currentSlide: 0,
+  slideInterval: null
 };
 
 // Performance Optimization - Debounced functions
@@ -67,8 +70,10 @@ function initializeApp() {
     window.flamasMatrix.languageManager = languageManager;
   }
   
+  setupHeroSlideshow();
   setupNavigation();
   setupSmoothScrolling();
+  setupParallaxEffects();
   setupGalleryFilters();
   setupReservationForm();
   setupContactForm();
@@ -81,6 +86,67 @@ function initializeApp() {
   initializeScrollAnimations();
   
   console.log('🔥 Flamas Matrix - Transformative experience initialized');
+}
+
+/**
+ * Hero Slideshow Setup
+ */
+function setupHeroSlideshow() {
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.slide-dot');
+  
+  if (slides.length === 0) return;
+  
+  // Auto-advance slides
+  function nextSlide() {
+    slides[AppState.currentSlide].classList.remove('active');
+    dots[AppState.currentSlide].classList.remove('active');
+    
+    AppState.currentSlide = (AppState.currentSlide + 1) % slides.length;
+    
+    slides[AppState.currentSlide].classList.add('active');
+    dots[AppState.currentSlide].classList.add('active');
+  }
+  
+  // Go to specific slide
+  function goToSlide(index) {
+    slides[AppState.currentSlide].classList.remove('active');
+    dots[AppState.currentSlide].classList.remove('active');
+    
+    AppState.currentSlide = index;
+    
+    slides[AppState.currentSlide].classList.add('active');
+    dots[AppState.currentSlide].classList.add('active');
+    
+    // Reset interval
+    clearInterval(AppState.slideInterval);
+    startSlideshow();
+  }
+  
+  // Start automatic slideshow
+  function startSlideshow() {
+    AppState.slideInterval = setInterval(nextSlide, 6000); // 6 seconds per slide
+  }
+  
+  // Stop slideshow
+  function stopSlideshow() {
+    clearInterval(AppState.slideInterval);
+  }
+  
+  // Dot click handlers
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
+  });
+  
+  // Pause on hover
+  const slideshowContainer = document.querySelector('.hero-slideshow');
+  if (slideshowContainer) {
+    slideshowContainer.addEventListener('mouseenter', stopSlideshow);
+    slideshowContainer.addEventListener('mouseleave', startSlideshow);
+  }
+  
+  // Initialize
+  startSlideshow();
 }
 
 /**
@@ -157,6 +223,43 @@ function setupSmoothScrolling() {
       }
     });
   });
+}
+
+/**
+ * Parallax Effects Setup - UNO Style Subtle Movement
+ */
+function setupParallaxEffects() {
+  let ticking = false;
+  
+  function updateParallax() {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    
+    parallaxElements.forEach(element => {
+      const speed = element.dataset.parallax || 0.5;
+      const yPos = -(scrolled * speed);
+      element.style.transform = `translateY(${yPos}px)`;
+    });
+    
+    // Subtle hero image movement
+    const heroSlides = document.querySelectorAll('.slide');
+    heroSlides.forEach(slide => {
+      const yPos = scrolled * 0.3;
+      slide.style.transform = `translateY(${yPos}px)`;
+    });
+    
+    ticking = false;
+  }
+  
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+  
+  // Throttled scroll listener
+  window.addEventListener('scroll', requestTick, { passive: true });
 }
 
 /**
