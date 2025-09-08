@@ -233,6 +233,7 @@ function setupParallaxEffects() {
   
   function updateParallax() {
     const scrolled = window.pageYOffset;
+    const windowHeight = window.innerHeight;
     const parallaxElements = document.querySelectorAll('[data-parallax]');
     
     parallaxElements.forEach(element => {
@@ -241,11 +242,37 @@ function setupParallaxEffects() {
       element.style.transform = `translateY(${yPos}px)`;
     });
     
-    // Subtle hero image movement
+    // Enhanced hero image movement - more pronounced like UNO
     const heroSlides = document.querySelectorAll('.slide');
-    heroSlides.forEach(slide => {
-      const yPos = scrolled * 0.3;
-      slide.style.transform = `translateY(${yPos}px)`;
+    const heroSection = document.querySelector('.hero-slideshow');
+    
+    if (heroSection) {
+      const heroRect = heroSection.getBoundingClientRect();
+      const heroProgress = Math.max(0, Math.min(1, (windowHeight - heroRect.top) / (windowHeight + heroRect.height)));
+      
+      heroSlides.forEach(slide => {
+        // More pronounced movement - like looking through a window
+        const yPos = scrolled * 0.6; // Increased from 0.3 to 0.6
+        const scale = 1 + (scrolled * 0.0003); // Subtle zoom effect
+        slide.style.transform = `translateY(${yPos}px) scale(${scale})`;
+      });
+      
+      // Fade effect as we scroll past the hero
+      const opacity = Math.max(0.3, 1 - (scrolled / (windowHeight * 0.8)));
+      heroSection.style.opacity = opacity;
+    }
+    
+    // Parallax for other sections
+    const sections = document.querySelectorAll('section:not(.hero-slideshow)');
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const sectionProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+      
+      if (sectionProgress > 0 && sectionProgress < 1) {
+        // Subtle movement for content sections
+        const yPos = (sectionProgress - 0.5) * 30;
+        section.style.transform = `translateY(${yPos}px)`;
+      }
     });
     
     ticking = false;
